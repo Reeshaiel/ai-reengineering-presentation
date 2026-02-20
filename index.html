@@ -4,58 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI-Assisted Software Re-Engineering</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-/* Animated Gradient Background */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    background: #0b0b0f;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    color: #f1f5f9;
 }
 
-@keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* Glass Card */
 .slide {
     display: none;
     width: 85%;
     max-width: 950px;
     padding: 60px;
     border-radius: 20px;
-    backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.08);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    color: #f1f5f9;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(56,189,248,0.15);
     text-align: center;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    opacity: 0;
-    transform: translateY(20px);
 }
 
-.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
+.active { display: block; }
 
 h1, h2 {
     color: #38bdf8;
+    font-weight: 700;
 }
 
 p, li {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 300;
     line-height: 1.6;
 }
 
@@ -64,40 +51,35 @@ ul {
     margin-top: 20px;
 }
 
-/* Controls */
 .controls {
     position: fixed;
     bottom: 30px;
 }
 
 button {
-    padding: 10px 25px;
+    padding: 10px 28px;
     margin: 5px;
     border-radius: 30px;
     border: none;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     background: #38bdf8;
-    color: #0f2027;
-    transition: 0.3s;
+    color: #0b0b0f;
 }
 
-button:hover {
-    background: #0ea5e9;
-    transform: scale(1.05);
-}
+button:hover { background: #0ea5e9; }
 
-canvas {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 20px;
+.chart-container {
+    width: 450px;
+    height: 350px;
+    margin: 0 auto;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Slide 1 -->
 <div class="slide active">
     <h1>AI-Assisted Software Re-Engineering</h1>
     <p>Enhancing Legacy System Maintainability</p>
@@ -105,14 +87,51 @@ canvas {
     <p><b>Student:</b> Reeshaiel Shah</p>
 </div>
 
+<!-- Slide 2 -->
 <div class="slide">
-    <h2>Research Question</h2>
-    <p>
-        How can AI-assisted techniques improve software re-engineering
-        for legacy systems to enhance maintainability and reduce effort?
-    </p>
+    <h2>What is Software Re-Engineering?</h2>
+    <ul>
+        <li>Process of analyzing and transforming existing software systems</li>
+        <li>Improves maintainability and quality</li>
+        <li>Extends system lifespan</li>
+        <li>Reduces long-term cost</li>
+    </ul>
 </div>
 
+<!-- Slide 3 -->
+<div class="slide">
+    <h2>Re-Engineering Process</h2>
+    <ul>
+        <li>Inventory Analysis</li>
+        <li>Reverse Engineering</li>
+        <li>Code Restructuring</li>
+        <li>Forward Engineering</li>
+    </ul>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+    <h2>Types of Re-Engineering</h2>
+    <ul>
+        <li>Code Refactoring</li>
+        <li>Data Re-Engineering</li>
+        <li>Architecture Migration</li>
+        <li>Cloud Modernization</li>
+    </ul>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+    <h2>AI Techniques Used</h2>
+    <ul>
+        <li>Natural Language Processing (Documentation generation)</li>
+        <li>Machine Learning (Effort prediction)</li>
+        <li>Large Language Models (Code understanding)</li>
+        <li>Static Code Analysis with AI</li>
+    </ul>
+</div>
+
+<!-- Slide 6 -->
 <div class="slide">
     <h2>Legacy System Challenges</h2>
     <ul>
@@ -123,22 +142,61 @@ canvas {
     </ul>
 </div>
 
-<div class="slide">
+<!-- Slide 7 -->
+<div class="slide" id="impactSlide">
     <h2>AI Impact on Efficiency</h2>
-    <canvas id="impactChart"></canvas>
+    <div class="chart-container">
+        <canvas id="impactChart"></canvas>
+    </div>
 </div>
 
-<div class="slide">
+<!-- Slide 8 -->
+<div class="slide" id="comparisonSlide">
     <h2>Manual vs AI Effort</h2>
-    <canvas id="comparisonChart"></canvas>
+    <div class="chart-container">
+        <canvas id="comparisonChart"></canvas>
+    </div>
 </div>
 
+<!-- Slide 9 -->
+<div class="slide">
+    <h2>Real-World Applications</h2>
+    <ul>
+        <li>Banking system modernization</li>
+        <li>Legacy ERP upgrades</li>
+        <li>Cloud migration projects</li>
+        <li>Automated code documentation tools</li>
+    </ul>
+</div>
+
+<!-- Slide 10 -->
+<div class="slide">
+    <h2>Future Scope</h2>
+    <ul>
+        <li>Autonomous code refactoring systems</li>
+        <li>AI-driven architecture redesign</li>
+        <li>Predictive maintenance systems</li>
+        <li>Fully automated legacy modernization</li>
+    </ul>
+</div>
+
+<!-- Slide 11 -->
 <div class="slide">
     <h2>Conclusion</h2>
     <p>
-        AI significantly improves maintainability and reduces effort.
-        However, AI should support—not replace—human expertise.
+        AI significantly improves maintainability and reduces effort in legacy systems.
+        However, AI must complement human expertise for reliable outcomes.
     </p>
+</div>
+
+<!-- Slide 12 -->
+<div class="slide">
+    <h2>References</h2>
+    <ul>
+        <li>Software Engineering Textbooks</li>
+        <li>IEEE Research Papers on AI & Software Maintenance</li>
+        <li>Recent Industry Reports on AI Code Tools</li>
+    </ul>
 </div>
 
 <div class="controls">
@@ -150,47 +208,69 @@ canvas {
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
 
+let impactChartCreated = false;
+let comparisonChartCreated = false;
+
 function showSlide(index) {
     slides[currentSlide].classList.remove("active");
     currentSlide = (index + slides.length) % slides.length;
     slides[currentSlide].classList.add("active");
+
+    if (slides[currentSlide].id === "impactSlide" && !impactChartCreated) {
+        createImpactChart();
+        impactChartCreated = true;
+    }
+
+    if (slides[currentSlide].id === "comparisonSlide" && !comparisonChartCreated) {
+        createComparisonChart();
+        comparisonChartCreated = true;
+    }
 }
 
 function nextSlide() { showSlide(currentSlide + 1); }
 function prevSlide() { showSlide(currentSlide - 1); }
 
-/* Keyboard navigation */
 document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowRight") nextSlide();
     if (e.key === "ArrowLeft") prevSlide();
 });
 
-/* Charts */
-new Chart(document.getElementById("impactChart"), {
-    type: "bar",
-    data: {
-        labels: ["Code Analysis", "Refactoring", "Documentation", "Effort Prediction"],
-        datasets: [{
-            label: "Improvement (%)",
-            data: [45, 40, 50, 35],
-            backgroundColor: "#38bdf8"
-        }]
-    },
-    options: {
-        scales: { y: { beginAtZero: true, max: 100 } }
-    }
-});
+function createImpactChart() {
+    new Chart(document.getElementById("impactChart"), {
+        type: "bar",
+        data: {
+            labels: ["Code Analysis", "Refactoring", "Documentation", "Effort Prediction"],
+            datasets: [{
+                label: "Improvement (%)",
+                data: [45, 40, 50, 35],
+                backgroundColor: "#38bdf8"
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true, max: 100 } }
+        }
+    });
+}
 
-new Chart(document.getElementById("comparisonChart"), {
-    type: "doughnut",
-    data: {
-        labels: ["Manual Effort", "AI-Assisted Effort"],
-        datasets: [{
-            data: [70, 30],
-            backgroundColor: ["#ef4444", "#22c55e"]
-        }]
-    }
-});
+function createComparisonChart() {
+    new Chart(document.getElementById("comparisonChart"), {
+        type: "doughnut",
+        data: {
+            labels: ["Manual Effort", "AI-Assisted Effort"],
+            datasets: [{
+                data: [70, 30],
+                backgroundColor: ["#ef4444", "#22c55e"]
+            }]
+        },
+        options: {
+            cutout: "60%",
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
 </script>
 
 </body>
