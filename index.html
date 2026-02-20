@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Assisted Software Re-Engineering</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* Animated Gradient Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Glass Card */
+.slide {
+    display: none;
+    width: 85%;
+    max-width: 950px;
+    padding: 60px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    color: #f1f5f9;
+    text-align: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1, h2 {
+    color: #38bdf8;
+}
+
+p, li {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+ul {
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* Controls */
+.controls {
+    position: fixed;
+    bottom: 30px;
+}
+
+button {
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: #38bdf8;
+    color: #0f2027;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+    transform: scale(1.05);
+}
+
+canvas {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide active">
+    <h1>AI-Assisted Software Re-Engineering</h1>
+    <p>Enhancing Legacy System Maintainability</p>
+    <p><b>Course:</b> Software Re-Engineering</p>
+    <p><b>Student:</b> Reeshaiel Shah</p>
+</div>
+
+<div class="slide">
+    <h2>Research Question</h2>
+    <p>
+        How can AI-assisted techniques improve software re-engineering
+        for legacy systems to enhance maintainability and reduce effort?
+    </p>
+</div>
+
+<div class="slide">
+    <h2>Legacy System Challenges</h2>
+    <ul>
+        <li>Missing documentation</li>
+        <li>Complex dependencies</li>
+        <li>High maintenance cost</li>
+        <li>Outdated technologies</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h2>AI Impact on Efficiency</h2>
+    <canvas id="impactChart"></canvas>
+</div>
+
+<div class="slide">
+    <h2>Manual vs AI Effort</h2>
+    <canvas id="comparisonChart"></canvas>
+</div>
+
+<div class="slide">
+    <h2>Conclusion</h2>
+    <p>
+        AI significantly improves maintainability and reduces effort.
+        However, AI should support—not replace—human expertise.
+    </p>
+</div>
+
+<div class="controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add("active");
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+/* Keyboard navigation */
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+});
+
+/* Charts */
+new Chart(document.getElementById("impactChart"), {
+    type: "bar",
+    data: {
+        labels: ["Code Analysis", "Refactoring", "Documentation", "Effort Prediction"],
+        datasets: [{
+            label: "Improvement (%)",
+            data: [45, 40, 50, 35],
+            backgroundColor: "#38bdf8"
+        }]
+    },
+    options: {
+        scales: { y: { beginAtZero: true, max: 100 } }
+    }
+});
+
+new Chart(document.getElementById("comparisonChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Manual Effort", "AI-Assisted Effort"],
+        datasets: [{
+            data: [70, 30],
+            backgroundColor: ["#ef4444", "#22c55e"]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
